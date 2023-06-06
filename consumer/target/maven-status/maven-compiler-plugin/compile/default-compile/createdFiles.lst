@@ -1,0 +1,5 @@
+com/example/consumer/repository/ServerLogsRepository.class
+com/example/consumer/controller/ServerLogsController.class
+com/example/consumer/kafkaservice/KafkaLogConsumer.class
+com/example/consumer/model/ServerLogs.class
+com/example/consumer/ConsumerApplication.class

@@ -1,0 +1,5 @@
+/Users/irfanahmed/Downloads/consumer/src/main/java/com/example/consumer/ConsumerApplication.java
+/Users/irfanahmed/Downloads/consumer/src/main/java/com/example/consumer/kafkaservice/KafkaLogConsumer.java
+/Users/irfanahmed/Downloads/consumer/src/main/java/com/example/consumer/model/ServerLogs.java
+/Users/irfanahmed/Downloads/consumer/src/main/java/com/example/consumer/repository/ServerLogsRepository.java
+/Users/irfanahmed/Downloads/consumer/src/main/java/com/example/consumer/controller/ServerLogsController.java

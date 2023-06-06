@@ -1,0 +1,35 @@
+<configuration>
+    <property resource="application.properties"/>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logfile.log</file>
+        <append>false</append>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${spring.application.name} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5relative %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- This is the kafkaAppender -->
+    <appender name="kafkaAppender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} ${spring.application.name} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <topic>quickstart</topic>
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.NoKeyKeyingStrategy" />
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.AsynchronousDeliveryStrategy" />
+        <producerConfig>bootstrap.servers=kafka:9092</producerConfig>
+
+        <!-- this is the fallback appender if kafka is not available. -->
+        <appender-ref ref="STDOUT" />
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="kafkaAppender" /> <!-- Every log will apear on screen log -->
+        <appender-ref ref="FILE" />   <!-- Every log will apear on file -->
+    </root>
+</configuration>
